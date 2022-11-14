@@ -1,0 +1,12 @@
+version: 2.1
+
+orbs:
+  docker: circleci/docker@2.1.4
+  
+jobs:
+  build:
+    docker:
+      - image: cimg/python:3.11.0
+    steps:
+      - checkout
+      
