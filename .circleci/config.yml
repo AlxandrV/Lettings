@@ -15,3 +15,8 @@ jobs:
       - run:
           name: launch pytest
           command: pytest
+
+workflows:
+  deploy:
+    jobs:
+      - build_and_test
