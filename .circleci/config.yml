@@ -1,6 +1,7 @@
 version: 2.1
 
 orbs:
+  python: circleci/python@2.1.1
   docker: circleci/docker@2.1.4
   
 jobs:
@@ -9,6 +10,7 @@ jobs:
       - image: cimg/python:3.11.0
     steps:
       - checkout
+      - python/install-packages
       - run:
           name: launch pytest
           command: pytest
