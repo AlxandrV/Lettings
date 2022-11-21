@@ -12,7 +12,7 @@ jobs:
       - checkout
       - python/install-packages
       - run:
-          name: launch pytest
+          name: Launch pytest
           command: pytest    
 
 workflows:
