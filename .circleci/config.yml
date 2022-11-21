@@ -18,7 +18,6 @@ jobs:
 workflows:
   deploy:
     jobs:
-      - build_and_test
       - docker/publish:
-        image: $DOCKER_LOGIN/$CIRCLE_PROJECT_REPONAME
-        requires: build_and_test
+          image: $DOCKER_LOGIN/$CIRCLE_PROJECT_REPONAME
+          requires: build_and_test
