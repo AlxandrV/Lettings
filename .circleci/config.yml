@@ -25,4 +25,6 @@ workflows:
           tag: $CIRCLE_SHA1,latest
           requires: 
             - build_and_test
-      - heroku/deploy-via-git
+      - heroku/deploy-via-git:
+          requires:
+            - docker/publish
