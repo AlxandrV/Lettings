@@ -20,7 +20,7 @@ workflows:
     jobs:
       - build_and_test
       - docker/publish:
-          image: $DOCKER_LOGIN/$CIRCLE_PROJECT_REPONAME
-          tag: latest
+          image: $DOCKER_LOGIN/lettings
+          tag: '$CIRCLE_SHA1,latest'
           requires: 
             - build_and_test
