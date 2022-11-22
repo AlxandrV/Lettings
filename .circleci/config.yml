@@ -3,6 +3,7 @@ version: 2.1
 orbs:
   python: circleci/python@2.1.1
   docker: circleci/docker@2.1.4
+  heroku: circleci/heroku@2.1
   
 jobs:
   build_and_test:
@@ -21,6 +22,9 @@ workflows:
       - build_and_test
       - docker/publish:
           image: $DOCKER_LOGIN/lettings
-          tag: '$CIRCLE_SHA1,latest'
+          tag: $CIRCLE_SHA1,latest
           requires: 
             - build_and_test
+      - heroku/deploy-via-git:
+          requires:
+            - docker/publish
