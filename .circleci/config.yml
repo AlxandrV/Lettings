@@ -21,5 +21,6 @@ workflows:
       - build_and_test
       - docker/publish:
           image: $DOCKER_LOGIN/$CIRCLE_PROJECT_REPONAME
+          tag: $CIRCLE_SHA1
           requires: 
             - build_and_test
