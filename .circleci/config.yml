@@ -27,4 +27,4 @@ workflows:
             - build_and_test
       - heroku/deploy-via-git:
           requires:
-            - docker/publish
+            - build_and_test
