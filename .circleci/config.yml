@@ -14,8 +14,10 @@ jobs:
       - python/install-packages
       - run:
           name: Launch pytest
-          command: pytest    
-
+          command: pytest
+      - run:
+          name: Print variable
+          command: echo ${HEROKU_APP_NAME}
 workflows:
   deploy:
     jobs:
@@ -27,4 +29,4 @@ workflows:
             - build_and_test
       - heroku/deploy-via-git:
           requires:
-            - build_and_test
+            - docker/publish
