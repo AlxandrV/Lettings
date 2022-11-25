@@ -17,7 +17,7 @@ jobs:
           command: pytest
       - run:
           name: Print variable
-          command: echo ${HEROKU_APP_NAME}
+          command: echo $HEROKU_APP_NAME
 workflows:
   deploy:
     jobs:
