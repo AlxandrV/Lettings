@@ -29,7 +29,6 @@ workflows:
             branches:
               only: master
       - heroku/deploy-via-git:
-          app-name:
           requires:
             - docker/publish
           filters:
