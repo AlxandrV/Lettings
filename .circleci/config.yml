@@ -27,8 +27,5 @@ workflows:
             - build_and_test
       - heroku/deploy-via-git:
           app-name: letting
-          run:
-            name: Disable collectstatic
-            command: heroku config:set DISABLE_COLLECTSTATIC=1
           requires:
             - docker/publish
