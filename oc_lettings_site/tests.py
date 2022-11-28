@@ -1,8 +1,6 @@
 from django.urls import reverse
 from django.test import TestCase
 
-from lettings.models import Address, Letting
-
 
 class TestLettings(TestCase):
     def test_oc_lettings_site_index(self):

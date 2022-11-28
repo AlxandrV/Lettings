@@ -26,7 +26,7 @@ class TestLettings(TestCase):
         address = Address.objects.create(**address_details)
         print(address.id)
         letting = Letting.objects.create(title='Bar de l\'U', address=address)
-        path = reverse('lettings:letting', kwargs={'letting_id': letting.id })
+        path = reverse('lettings:letting', kwargs={'letting_id': letting.id})
         res = self.client.get(path)
 
         # Assert
