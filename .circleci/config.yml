@@ -27,11 +27,11 @@ workflows:
             - build_and_test
           filters:
             branches:
-              only: master
+              only: main
       - heroku/deploy-via-git:
-          app-name: '$HEROKU_APP_NAME'
+          app-name: $HEROKU_APP_NAME
           requires:
             - docker/publish
           filters:
             branches:
-              only: master
+              only: main
