@@ -3,6 +3,7 @@ from django.test import TestCase
 
 from lettings.models import Address, Letting
 
+
 class TestLettings(TestCase):
     def test_lettings_index(self):
         path = reverse('lettings:index')
