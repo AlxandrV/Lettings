@@ -130,4 +130,3 @@ dmypy.json
 
 # App
 oc-lettings-site.sqlite3
-static_cdn/*
