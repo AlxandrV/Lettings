@@ -3,6 +3,7 @@ import environ
 
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
+from django.core.management.utils import get_random_secret_key
 
 
 # Initialise environment variables
@@ -18,7 +19,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = env('SECRET_KEY', default=get_random_secret_key())
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -78,7 +79,7 @@ WSGI_APPLICATION = 'oc_lettings_site.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, env('DATABASE_NAME')),
+        'NAME': os.path.join(BASE_DIR, env('DATABASE_NAME', default='oc-lettings-site.sqlite3')),
     }
 }
 
@@ -129,7 +130,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static_cdn")
 
 # Sentry porject
 sentry_sdk.init(
-    dsn=env('SENTRY_DSN'),
+    dsn=env('SENTRY_DSN', default=None),
     integrations=[
         DjangoIntegration(),
     ],
@@ -143,4 +144,3 @@ sentry_sdk.init(
     # django.contrib.auth) you may enable sending PII data.
     send_default_pii=True
 )
-
