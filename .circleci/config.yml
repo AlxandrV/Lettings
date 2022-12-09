@@ -14,7 +14,7 @@ jobs:
       - python/install-packages
       - run:
           name: Launch pytest
-          command: pytest --no-migrations
+          command: pytest
 
 workflows:
   deploy:
