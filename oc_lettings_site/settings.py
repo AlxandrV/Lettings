@@ -1,6 +1,7 @@
 import os
 import environ
 
+import django_heroku
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 from django.core.management.utils import get_random_secret_key
@@ -144,3 +145,5 @@ sentry_sdk.init(
     # django.contrib.auth) you may enable sending PII data.
     send_default_pii=True
 )
+
+django_heroku.settings(locals())
