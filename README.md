@@ -68,7 +68,7 @@ In the rest of the local development documentation, it is assumed that the `pyth
 - Open a `sqlite3` shell session
 - Connect to the database `.open oc-lettings-site.sqlite3`
 - Display the tables in the database `.tables`
-- Show columns in the profile table, `pragma table_info(profiles_profile;`
+- Show columns in the profile table, `pragma table_info(profiles_profile);`
 - Run a query on the profile table, `select user_id, favorite_city from profiles_profile where favorite_city like 'B%';`
 - `.quit` to leave
 
@@ -137,6 +137,14 @@ Steps :
 
 Project [Lettings](https://letting.herokuapp.com/) deployed on Heroku
 
+| key | Value |
+|-----|-------|
+| DEBUG_COLLECTSTATIC | 1 |
+| SECRET_KEY | `Your secret key Django` |
+| SENTRY_DSN | `Your sentry DSN` |
+
+By default Heroku create in your app an Add-ons `DATABASE` remove that
+
 ### Sentry
 
-Coming soon...
+Create Sentry account to access the project [Lettings](https://sentry.io/organizations/openclassrooms-0q/projects/lettings/)
